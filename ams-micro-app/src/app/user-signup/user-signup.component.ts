@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup, NgForm, Validators } from '@angular/forms';
+import { FormBuilder, FormGroup, FormGroupDirective, NgForm, Validators } from '@angular/forms';
 import { LoginService } from '../http-services/login/login.service';
 import { User } from '../model/login/user';
 
@@ -30,12 +30,29 @@ export class UserSignupComponent implements OnInit {
 
   ngOnInit(): void {
   }
-  user: User =new User();
+  user: User = new User();
 
   // Executed When Form Is Submitted  
-  onFormSubmit(form: NgForm) {
+  onFormSubmit(form: NgForm,formDirective:FormGroupDirective) {
     this.user = Object.assign(this.user, form);
 
-    this.loginService.signup(this.user).subscribe(data=>console.log(data))
+    this.loginService.signup(this.user).subscribe((data: any) => {
+      console.log(data)
+
+      data = JSON.parse(data)
+      if (data.success) {
+        alert(data.success.message);
+        this.regiForm.reset();
+        formDirective.resetForm();
+      }
+    }, err => {
+      console.log(err)
+
+      let errorObj = JSON.parse(err.error);
+
+      alert(errorObj.error.message)
+    }
+    )
+
   }
 }

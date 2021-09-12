@@ -10,7 +10,7 @@
         <h3>Join Us,</h3>
         <p>create account to continue</p>
       </section>
-      <form [formGroup]="regiForm" (ngSubmit)="onFormSubmit(regiForm.value)">  
+      <form [formGroup]="regiForm" #formDirective="ngForm" (ngSubmit)="onFormSubmit(regiForm.value,formDirective)">  
 
         <p>
           <mat-form-field appearance="fill">

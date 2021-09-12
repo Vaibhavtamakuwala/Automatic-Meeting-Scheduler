@@ -9,10 +9,10 @@ const createUser = async (req, res) => {
         logger.debug(`new user ${userData.firstName} sign-up succesfully`);
     } catch (err) {
         logger.error(err);
-        res.status(err.status || 500).json({status:err.status,message:"server internal error while creating new user"})
+        res.status(err.status || 500).json({error:{status:err.status || 500,message:err.message || "server internal error while creating new user"}})
     }
 
-    res.status(201).json({status:201,message:"user created successfully"})
+    res.status(201).json({success:{status:201,message:"user created successfully"}})
 }
 
 module.exports = createUser
