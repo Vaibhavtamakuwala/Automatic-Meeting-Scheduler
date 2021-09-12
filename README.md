@@ -17,14 +17,14 @@ It will schedule meetings on behalf of teacher/professor/individual.
 
 ### UI setup 
 
-1) open terminal,run "cd .\ams-micro-app\"
+1) open terminal,run "cd .\ams-micro-app\" command
 2) run "npm install" command
 3) npm start
 4) http://localhost:4200/
 
 ### Backend setup
 
-1) open another new terminal,run "cd .\ams-micro-api\"
+1) open another new terminal,run "cd .\ams-micro-api\" command
 2) run "npm install" command
 3) npm start
 
