@@ -1,10 +1,13 @@
 const mongoose = require("mongoose")
 const logger = require('./shared/logger/winston-logger');
 
+const mongo_uri= process.env.MONGODB_URI;
+
+
 module.exports = async () => {
 
     try {
-        await mongoose.connect("mongodb://localhost:27017/kykzdb");
+        await mongoose.connect(mongo_uri);
         console.log('');
         console.log('|*****************************************************|');
         console.log('|-----------mongo db connected succesfully ----------|');

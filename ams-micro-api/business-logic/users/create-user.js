@@ -5,8 +5,9 @@ const createUser = async (req, res) => {
     const userData = new User(req.body)
 
     try {
-        await userData.save();
-        logger.debug(`new user ${userData.firstName} sign-up succesfully`);
+       const response = await userData.save();
+       
+      logger.debug(`new user ${response.firstName} sign-up succesfully`);
     } catch (err) {
         logger.error(err);
         res.status(err.status || 500).json({error:{status:err.status || 500,message:err.message || "server internal error while creating new user"}})
