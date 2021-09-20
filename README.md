@@ -11,7 +11,7 @@ It will schedule meetings on behalf of teacher/professor/individual.
 
 # Setup
 
-1) fork the repository's developer branch
+1) fork the repository's ams-developer branch
 2) clone it
 3) open the project folder (Automatic-Meeting-Scheduler) under visual studio IDE.
 
