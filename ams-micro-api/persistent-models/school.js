@@ -6,6 +6,6 @@ const schoolsSchema = new mongoose.Schema({
         type: String,
         required: true
     }
-})
+}, { collection : 'schools' })
 const school = mongoose.model('school', schoolsSchema);
 module.exports = school;
