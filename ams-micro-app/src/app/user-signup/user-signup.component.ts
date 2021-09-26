@@ -10,8 +10,13 @@ import { User } from '../model/login/user';
 })
 export class UserSignupComponent implements OnInit {
   regiForm: FormGroup;
+  schools: any[]=[];
   constructor(private fb: FormBuilder, private loginService: LoginService) {
 
+    this.loginService.fetchSchools().subscribe((data: any[]) => {
+      console.log(data)
+      this.schools = data;
+    })
 
     // To initialize FormGroup  
     this.regiForm = fb.group({
@@ -26,6 +31,8 @@ export class UserSignupComponent implements OnInit {
 
     });
 
+
+
   }
 
   ngOnInit(): void {
@@ -33,7 +40,7 @@ export class UserSignupComponent implements OnInit {
   user: User = new User();
 
   // Executed When Form Is Submitted  
-  onFormSubmit(form: NgForm,formDirective:FormGroupDirective) {
+  onFormSubmit(form: NgForm, formDirective: FormGroupDirective) {
     this.user = Object.assign(this.user, form);
 
     this.loginService.signup(this.user).subscribe((data: any) => {

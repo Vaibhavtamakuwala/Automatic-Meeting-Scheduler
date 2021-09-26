@@ -7,6 +7,9 @@ import { User } from 'src/app/model/login/user';
   providedIn: 'root'
 })
 export class LoginService {
+  fetchSchools() {
+    return this.http.get<any[]>("http://localhost:8081/schools");
+  }
  
 
   constructor(private http: HttpClient) { }

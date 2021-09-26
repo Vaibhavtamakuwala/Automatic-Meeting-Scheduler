@@ -16,10 +16,10 @@
           <mat-form-field appearance="fill">
             <mat-label>School</mat-label>
             <select formControlName="schoolId" matNativeControl required>
-              <option value="dps">DPS, Bhopal</option>
-              <option value="marigold">MariGold</option>
-              <option value="hebron">Hebron</option>
-              <option value="best">Best</option>
+              <ng-container *ngFor="let school of schools;">
+                <option  value="school._id">{{school.school_name}}</option>
+              </ng-container>
+              
             </select>
           </mat-form-field>
         </p>
