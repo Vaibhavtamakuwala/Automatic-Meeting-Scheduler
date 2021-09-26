@@ -24,4 +24,7 @@ app.listen(PORT, function (req, res) {
 /*************----------users controller------------************/
 //create user api
 app.post("/users", createUser)
+//Create school api
+const schoolApi = require('./business-logic/users/get-schools')
+app.use(schoolApi)
 
