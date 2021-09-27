@@ -19,6 +19,7 @@
               <ng-container *ngFor="let school of schools;">
                 <option  value="school._id">{{school.school_name}}</option>
               </ng-container>
+              
             </select>
           </mat-form-field>
         </p>
@@ -26,9 +27,10 @@
           <mat-form-field appearance="fill">
             <mat-label>Class</mat-label>
             <select formControlName="classId" matNativeControl required>
-              <ng-container *ngFor="let class of classes;">
-                <option  value="class._id">{{class.class_name}}</option>
-              </ng-container>
+              <option value="class8A">Class 8A</option>
+              <option value="class6B">Class 6B</option>
+              <option value="class12C">Class 12C</option>
+              <option value="class4D">Class 4D</option>
             </select>
           </mat-form-field>
         </p>
