@@ -27,4 +27,6 @@ app.post("/users", createUser)
 //Create school api
 const schoolApi = require('./business-logic/users/get-schools')
 app.use(schoolApi)
-
+//Create classes api
+const classesApi = require('./business-logic/users/get-classes')
+app.use(classesApi)

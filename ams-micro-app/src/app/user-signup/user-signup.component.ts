@@ -1,5 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { ClassSansProvider, Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, FormGroupDirective, NgForm, Validators } from '@angular/forms';
+import { Data } from '@angular/router';
 import { LoginService } from '../http-services/login/login.service';
 import { User } from '../model/login/user';
 
@@ -11,13 +12,19 @@ import { User } from '../model/login/user';
 export class UserSignupComponent implements OnInit {
   regiForm: FormGroup;
   schools: any[]=[];
+  classes: any[]=[];
   constructor(private fb: FormBuilder, private loginService: LoginService) {
-
+    //for schools
     this.loginService.fetchSchools().subscribe((data: any[]) => {
       console.log(data)
       this.schools = data;
     })
-
+    //for classes
+    this.loginService.fetchClasses().subscribe((data: any[]) => {
+      console.log(data)
+      this.classes = data;
+      this.classes.sort();
+    })
     // To initialize FormGroup  
     this.regiForm = fb.group({
       'schoolId': [null, Validators.required],
