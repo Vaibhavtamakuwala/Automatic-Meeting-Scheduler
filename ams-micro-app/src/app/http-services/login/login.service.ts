@@ -10,8 +10,10 @@ export class LoginService {
   fetchSchools() {
     return this.http.get<any[]>("http://localhost:8081/schools");
   }
- 
-
+  fetchClasses() {
+    return this.http.get<any[]>("http://localhost:8081/classes");
+  }
+  
   constructor(private http: HttpClient) { }
   signup(user: User) {
     const headers = new HttpHeaders().set('Content-Type', 'application/json')
